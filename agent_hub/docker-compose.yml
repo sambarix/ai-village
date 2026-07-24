@@ -1,0 +1,12 @@
+services:
+  agent-hub:
+    build: .
+    container_name: agent-hub
+    restart: unless-stopped
+    ports:
+      - "9656:8000"
+    volumes:
+      - ./data:/data
+      - ../aivillage-docs/aivillage:/workspace
+    environment:
+      - DB_PATH=/data/hub.db
